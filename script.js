@@ -67,3 +67,22 @@ document.addEventListener('keydown', e => {
     document.removeEventListener();
   }
 });
+const imgScroll = function (e) {
+  if (e.key == 'ArrowLeft') {
+    if (activeIndex > 0) {
+      refs.lightBoxImg.src = gallery[activeIndex - 1].original;
+      activeIndex -= 1;
+      console.log(activeIndex);
+    } else {
+      activeIndex = gallery.length;
+    }
+  } else if (e.key == 'ArrowRight') {
+    if (activeIndex < gallery.length - 1) {
+      refs.lightBoxImg.src = gallery[activeIndex + 1].original;
+      activeIndex += 1;
+      console.log(activeIndex);
+    } else {
+      activeIndex = -1;
+    }
+  }
+};
